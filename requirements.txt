@@ -1,0 +1,5 @@
+flask
+mongoengine
+pynsq
+requests
+tornado==4.5.3
