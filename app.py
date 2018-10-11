@@ -108,6 +108,22 @@ def unread():
         ll.append(al)
     return jsonify(ll)
 
+from daemon import Daemon
+#import subprocess
+import os
+@app.route('/start')
+def start():
+#    d = Daemon('/tmp/py-daemon.pid')
+#    d.start()
+    os.system("python fakelog.py start")
+    return jsonify({"msg": "start"})
+
+@app.route('/stop')
+def stop():
+#    d = Daemon('/tmp/py-daemon.pid')
+#    d.stop()
+    os.system("python fakelog.py stop")
+    return jsonify({"msg": "stop"})
 
 if __name__ == "__main__":
     app.run(debug=True)
